@@ -24,8 +24,8 @@ function App() {
   return (
     <div className="App">
      <QuoteBox
-      randomQuote = {quote?.quote}
-      randomAuthor = {quote?.author}
+      randomQuote = {quote.quote}
+      randomAuthor = {quote.author}
       getQandC = {getQandC}
       Color = {color}
      />
