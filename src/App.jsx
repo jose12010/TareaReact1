@@ -17,6 +17,7 @@ function App() {
   const getQandC = () =>{
     setQuote(quotes[randomIndexQ])
     setColor(colors[randomIndexC])
+    console.log("SI SE EJECUTA")
   } 
   
 
