@@ -1,22 +1,22 @@
 import { useState} from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import { useEffect } from 'react'
 import quotes from './quotes.json'
 import QuoteBox from './components/QuoteBox'
 import colors from "./components/colors"
 
 function App() {
 
-  const randomIndexQ = Math.floor(Math.random()*quotes.length)
-  const randomIndexC = Math.floor(Math.random()*colors.length)
+  const randomIndex = array => Math.floor(Math.random()*array.length)
 
-  const [quote, setQuote] = useState(quotes[randomIndexQ])
-  const [color, setColor] = useState(colors[randomIndexC])
+  const defaultElementQ = quotes[randomIndex(quotes)]
+  const defaultElementC = colors[randomIndex(colors)]
+
+  const [quote, setQuote] = useState(defaultElementQ)
+  const [color, setColor] = useState(defaultElementC)
   
   const getQandC = () =>{
-    setQuote(quotes[randomIndexQ])
-    setColor(colors[randomIndexC])
+    setQuote(quotes[randomIndex(quotes)])
+    setColor(colors[randomIndex(colors)])
     console.log("SI SE EJECUTA")
   } 
   
@@ -25,13 +25,13 @@ function App() {
   return (
     <div className="App">
      <QuoteBox
-      randomQuote = {quote.quote}
-      randomAuthor = {quote.author}
+      randomQuote = {quote?.quote}
+      randomAuthor = {quote?.author}
       getQandC = {getQandC}
       Color = {color}
      />
-     
     </div>
+    
   )
 }
 
